@@ -18,7 +18,8 @@ public class InterfaceFactory extends PayApplicationTests{
 	RunFactory runFactory;
 	@Test
 	public void test() {
-		System.out.println(runFactory);
+//		System.out.println(runFactory);
+		runFactory.run("rabit");
 	}
 }
 
@@ -34,17 +35,21 @@ class RunFactory{
 	public void setStgMap(Map<String, Run> stgMap) {
 		this.stgMap = stgMap;
 	}
+	
+	public void run(String name) {
+		this.stgMap.get(name).run();
+	}
 }
 
 interface Run{
-	void run(String name);
+	void run();
 }
 
 @Component
 class Rabit implements Run{
 
 	@Override
-	public void run(String name) {
+	public void run() {
 		System.out.println("fastly!");
 	}
 	
@@ -54,7 +59,7 @@ class Rabit implements Run{
 class Tortoise implements Run{
 
 	@Override
-	public void run(String name) {
+	public void run() {
 		System.out.println("slowly!");
 	}
 	
