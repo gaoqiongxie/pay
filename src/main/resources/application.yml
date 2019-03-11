@@ -1,0 +1,8 @@
+# server
+server: 
+   port: 8011
+   servlet: 
+      session: 
+         timeout: 10
+   tomcat: 
+      uri-encoding: UTF-8
